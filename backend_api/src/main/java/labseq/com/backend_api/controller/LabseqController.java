@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
+
 @RestController
 @RequestMapping("labseq")
 @CrossOrigin
@@ -32,16 +34,16 @@ public class LabseqController {
      */
     @Operation(summary = "Get the labseq sequence value at index n")
     @GetMapping("/{n}")
-    public ResponseEntity<Integer> getLabseqValue(@PathVariable(name = "n") Integer n) throws IncorrectParameterValueException {
-        logger.info("Received a request on the labseq{} endpoint for calculating the value for N {}", n, n);
+    public ResponseEntity<BigInteger> getLabseqValue(@PathVariable(name = "n") Integer n) throws IncorrectParameterValueException {
+        logger.info("Received a request on the labseq{} endpoint for calculating the value for N: {}", n, n);
 
         // startTime and endTime will be used to measure and log the execution time of the call to the algorithm
         long startTime = System.currentTimeMillis();
 
-        Integer returnValue = labseqService.getLabseqValue(n);
+        BigInteger returnValue = labseqService.getLabseqValue(n);
 
         long endTime = System.currentTimeMillis();
-        logger.debug("getLabseqValue execution time for N {} was; {}s", n, (endTime - startTime)/1000);
+        logger.debug("getLabseqValue execution time for N ({}) was: {}s", n, String.format("%.4fs", (endTime - startTime)/1000.0));
 
         // Returning the Request Body
         return ResponseEntity.ok().body(returnValue);
