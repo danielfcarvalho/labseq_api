@@ -10,8 +10,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+/**
+ * Unit Tests for the Service Class
+ */
 @ExtendWith(MockitoExtension.class)
-public class LabseqService_UnitTest {
+class LabseqService_UnitTest {
     @InjectMocks
     private LabseqService labseqService;
 
@@ -26,7 +29,7 @@ public class LabseqService_UnitTest {
     @Test
     void whenGetLabseqValue_withValidIndex_thenReturnCorrectValue(){
         // Verify the result is as expected
-        assertThat(labseqService.getLabseqValue(10)).isEqualTo(3);
+        assertThat(labseqService.getLabseqValue(13)).isEqualTo(5);
     }
 
 }
