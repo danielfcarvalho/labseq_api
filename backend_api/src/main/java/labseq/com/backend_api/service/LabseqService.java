@@ -47,7 +47,7 @@ public class LabseqService {
             return result;
         }
 
-        // Calculate for smaller versions first
+        // Calculate for smaller versions first, so cache is populated and StackOverflow is avoided
         if (n > 5000){
             getLabseqValue(n/2);
         }

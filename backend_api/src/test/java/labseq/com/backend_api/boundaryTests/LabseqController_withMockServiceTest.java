@@ -10,6 +10,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.math.BigInteger;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -39,7 +41,7 @@ class LabseqController_withMockServiceTest {
 
     @Test
     void whenGetLabseqValue_withValidIndex_thenReturnStatusOK() throws Exception {
-        when(labseqService.getLabseqValue(10)).thenReturn(3);
+        when(labseqService.getLabseqValue(10)).thenReturn(BigInteger.valueOf(3));
 
         mockMvc.perform(
                         get("/labseq/10").contentType(MediaType.APPLICATION_JSON))
