@@ -40,7 +40,6 @@ public class LabseqController {
 
         long endTime = System.currentTimeMillis();
         double duration = (endTime - startTime)/1000.0;
-        LOGGER.debug("getLabseqValue execution time for N ({}) was: {}s", n, String.format("%.4fs", duration));
 
         // Creating the response
         Map<String, String> response = new HashMap<>();

@@ -25,7 +25,7 @@ public class CacheService_UnitTest {
     private CacheService cacheService;
 
     @Test
-    public void getCorrectCacheSize() {
+    void getCorrectCacheSize() {
         // Set up Expectations
         Map<Integer, BigInteger> fakeCachedResults = new HashMap<>();
         fakeCachedResults.put(0, new BigInteger("0"));
@@ -41,7 +41,7 @@ public class CacheService_UnitTest {
     }
 
     @Test
-    public void getCorrectHits() {
+    void getCorrectHits() {
         // Set up Expectations
         when(cache.getHITS()).thenReturn(5);
 
@@ -53,7 +53,7 @@ public class CacheService_UnitTest {
     }
 
     @Test
-    public void getCorrectMisses() {
+    void getCorrectMisses() {
         // Set up Expectations
         when(cache.getMISSES()).thenReturn(5);
 
@@ -65,7 +65,7 @@ public class CacheService_UnitTest {
     }
 
     @Test
-    public void getCorrectRequests() {
+    void getCorrectRequests() {
         // Set up Expectations
         when(cache.getTotalRequests()).thenReturn(5);
 
@@ -77,7 +77,7 @@ public class CacheService_UnitTest {
     }
 
     @Test
-    public void getAllStats() {
+    void getAllStats() {
         // Set up Expectations
         Map<Integer, BigInteger> fakeCachedResults = new HashMap<>();
         fakeCachedResults.put(0, new BigInteger("0"));

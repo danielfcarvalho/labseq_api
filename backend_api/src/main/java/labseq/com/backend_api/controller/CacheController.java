@@ -14,7 +14,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("labseq/cache")
 public class CacheController {
-    private static final Logger LOGGER = LoggerFactory.getLogger(LabseqController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CacheController.class);
     private LabseqCache cache;
     private CacheService cacheService;
 
@@ -30,6 +30,7 @@ public class CacheController {
     @Operation(summary = "Get all of the values stored in the cache")
     @GetMapping("/all")
     public ResponseEntity<Map<Integer, BigInteger>> getAllCachedValues(){
+        LOGGER.info("Received a request on the cache endpoint to return all cached values");
         return ResponseEntity.ok().body(cache.getCache());
     }
 
@@ -41,6 +42,7 @@ public class CacheController {
     @Operation(summary = "Get the complete set of cache statistics")
     @GetMapping("/stats")
     public ResponseEntity<Map<String, Integer>> getFullCacheStats(){
+        LOGGER.info("Received a request on the cache endpoint to return all cache statistics");
         return ResponseEntity.ok().body(cacheService.getAllStats());
     }
 
@@ -52,6 +54,7 @@ public class CacheController {
     @GetMapping("/stats/size")
     @ResponseBody
     public  ResponseEntity<Integer> cacheSize(){
+        LOGGER.info("Received a request on the cache endpoint to return current cache size");
         return ResponseEntity.ok().body(cacheService.getCacheSize());
     }
 
@@ -63,6 +66,7 @@ public class CacheController {
     @GetMapping("/stats/requests")
     @ResponseBody
     public  ResponseEntity<Integer> cacheRequests(){
+        LOGGER.info("Received a request on the cache endpoint to return total cache requests");
         return ResponseEntity.ok().body(cacheService.getCacheRequests());
     }
 
@@ -74,6 +78,7 @@ public class CacheController {
     @GetMapping("/stats/hits")
     @ResponseBody
     public  ResponseEntity<Integer> cacheHits(){
+        LOGGER.info("Received a request on the cache endpoint to return total cache hits");
         return ResponseEntity.ok().body(cacheService.getCacheHits());
     }
 
@@ -85,6 +90,7 @@ public class CacheController {
     @GetMapping("/stats/misses")
     @ResponseBody
     public  ResponseEntity<Integer> cacheMisses(){
+        LOGGER.info("Received a request on the cache endpoint to return total cache misses");
         return ResponseEntity.ok().body(cacheService.getCacheMisses());
     }
 }

@@ -35,7 +35,7 @@ public class CacheController_withMockServiceTest {
     private LabseqCache cache;
 
     @Test
-    public void getCorrectCacheSize() throws Exception {
+    void getCorrectCacheSize() throws Exception {
         // Set up Expectations
         when(cacheService.getCacheSize()).thenReturn(5);
 
@@ -47,7 +47,7 @@ public class CacheController_withMockServiceTest {
     }
 
     @Test
-    public void getCorrectHits() throws Exception {
+    void getCorrectHits() throws Exception {
         // Set up Expectations
         when(cacheService.getCacheHits()).thenReturn(5);
 
@@ -59,7 +59,7 @@ public class CacheController_withMockServiceTest {
     }
 
     @Test
-    public void getCorrectMisses() throws Exception {
+    void getCorrectMisses() throws Exception {
         // Set up Expectations
         when(cacheService.getCacheMisses()).thenReturn(5);
 
@@ -71,7 +71,7 @@ public class CacheController_withMockServiceTest {
     }
 
     @Test
-    public void getCorrectRequests() throws Exception {
+    void getCorrectRequests() throws Exception {
         // Set up Expectations
         when(cacheService.getCacheRequests()).thenReturn(5);
 
@@ -83,7 +83,7 @@ public class CacheController_withMockServiceTest {
     }
 
     @Test
-    public void getAllStats() throws Exception {
+    void getAllStats() throws Exception {
         // Set up Expectations
         Map<String, Integer> expectedStats = new HashMap<>();
         expectedStats.put("REQUESTS", 10);
