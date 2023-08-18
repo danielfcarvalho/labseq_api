@@ -46,6 +46,6 @@ class LabseqController_withMockServiceTest {
         mockMvc.perform(
                         get("/labseq/10").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", is(3)));
+                .andExpect(jsonPath("$.Value", is("3")));
     }
 }

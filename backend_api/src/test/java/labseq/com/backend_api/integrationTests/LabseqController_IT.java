@@ -1,12 +1,14 @@
 package labseq.com.backend_api.integrationTests;
 
 import io.restassured.RestAssured;
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.*;
 
 
 /**
@@ -16,7 +18,7 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class LabseqController_integrationTest {
+class LabseqController_IT {
     private final static String BASE_URI = "http://localhost:";
 
     @LocalServerPort
@@ -28,7 +30,8 @@ class LabseqController_integrationTest {
                 .get(BASE_URI + randomServerPort + "/labseq/10")
                 .then().statusCode(200)
                 .assertThat()
-                .body(Matchers.equalTo("3"));
+                .body("Value", is("3")).and()
+                .body("$", hasKey("Execution Time"));
     }
 
     @Test
