@@ -58,7 +58,7 @@ class LabseqController_IT {
                 .get(BASE_URI + randomServerPort + "/labseq/10")
                 .then().statusCode(200)
                 .assertThat()
-                .body("Value", is("3s")).and()
+                .body("Value", is("3")).and()
                 .body("$", hasKey("Execution Time"));
 
         // Verify that the cache was not hit any more times

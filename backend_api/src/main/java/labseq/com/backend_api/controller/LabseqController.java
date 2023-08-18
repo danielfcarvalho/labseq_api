@@ -45,7 +45,7 @@ public class LabseqController {
         // Creating the response
         Map<String, String> response = new HashMap<>();
 
-        response.put("Execution Time", String.valueOf(duration)).concat("s");
+        response.put("Execution Time", String.valueOf(duration).concat("s"));
         response.put("Value", String.valueOf(returnValue));
 
         // Returning the Request Body
