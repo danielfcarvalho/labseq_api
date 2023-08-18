@@ -14,7 +14,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("labseq")
-@CrossOrigin
 public class LabseqController {
     private static final Logger LOGGER = LoggerFactory.getLogger(LabseqController.class);
     LabseqService labseqService;
