@@ -53,7 +53,7 @@ public class CacheController {
     @Operation(summary = "Get the size of the cache")
     @GetMapping("/stats/size")
     @ResponseBody
-    public  ResponseEntity<Integer> cacheSize(){
+    public  ResponseEntity<Map<String, Integer>> cacheSize(){
         LOGGER.info("Received a request on the cache endpoint to return current cache size");
         return ResponseEntity.ok().body(cacheService.getCacheSize());
     }
@@ -65,7 +65,7 @@ public class CacheController {
     @Operation(summary = "Get the total number of requests made to the cache.")
     @GetMapping("/stats/requests")
     @ResponseBody
-    public  ResponseEntity<Integer> cacheRequests(){
+    public  ResponseEntity<Map<String, Integer>> cacheRequests(){
         LOGGER.info("Received a request on the cache endpoint to return total cache requests");
         return ResponseEntity.ok().body(cacheService.getCacheRequests());
     }
@@ -77,7 +77,7 @@ public class CacheController {
     @Operation(summary = "Get the total number of hits received by the cache.")
     @GetMapping("/stats/hits")
     @ResponseBody
-    public  ResponseEntity<Integer> cacheHits(){
+    public  ResponseEntity<Map<String, Integer>>  cacheHits(){
         LOGGER.info("Received a request on the cache endpoint to return total cache hits");
         return ResponseEntity.ok().body(cacheService.getCacheHits());
     }
@@ -89,7 +89,7 @@ public class CacheController {
     @Operation(summary = "Get the total number of misses received by the cache.")
     @GetMapping("/stats/misses")
     @ResponseBody
-    public  ResponseEntity<Integer> cacheMisses(){
+    public  ResponseEntity<Map<String, Integer>>  cacheMisses(){
         LOGGER.info("Received a request on the cache endpoint to return total cache misses");
         return ResponseEntity.ok().body(cacheService.getCacheMisses());
     }

@@ -34,7 +34,7 @@ public class CacheService_UnitTest {
         when(cache.getCache()).thenReturn(fakeCachedResults);
 
         // Verify the result is as expected
-        assertThat(cacheService.getCacheSize()).isEqualTo(2);
+        assertThat(cacheService.getCacheSize()).containsEntry("Cache Size", 2);
 
         // Verify that the external API was called and Verify that the cache was called twice - to query and to add the new record
         Mockito.verify(cache, VerificationModeFactory.times(1)).getCache();
@@ -46,7 +46,7 @@ public class CacheService_UnitTest {
         when(cache.getHITS()).thenReturn(5);
 
         // Verify the result is as expected
-        assertThat( cacheService.getCacheHits()).isEqualTo(5);
+        assertThat( cacheService.getCacheHits()).containsEntry("Cache Hits", 5);
 
         // Verify that the external API was called and Verify that the cache was called twice - to query and to add the new record
         Mockito.verify(cache, VerificationModeFactory.times(1)).getHITS();
@@ -58,7 +58,7 @@ public class CacheService_UnitTest {
         when(cache.getMISSES()).thenReturn(5);
 
         // Verify the result is as expected
-        assertThat( cacheService.getCacheMisses()).isEqualTo(5);
+        assertThat( cacheService.getCacheMisses()).containsEntry("Cache Misses", 5);
 
         // Verify that the external API was called and Verify that the cache was called twice - to query and to add the new record
         Mockito.verify(cache, VerificationModeFactory.times(1)).getMISSES();
@@ -70,7 +70,7 @@ public class CacheService_UnitTest {
         when(cache.getTotalRequests()).thenReturn(5);
 
         // Verify the result is as expected
-        assertThat( cacheService.getCacheRequests()).isEqualTo(5);
+        assertThat( cacheService.getCacheRequests()).containsEntry("Total Requests", 5);
 
         // Verify that the external API was called and Verify that the cache was called twice - to query and to add the new record
         Mockito.verify(cache, VerificationModeFactory.times(1)).getTotalRequests();

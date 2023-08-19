@@ -18,32 +18,36 @@ public class CacheService {
      * Returns the current size of the cache.
      * @return
      */
-    public int getCacheSize(){
-        return cache.getCache().size();
+    public Map<String, Integer> getCacheSize(){
+        int size = cache.getCache().size();
+        return Map.of("Cache Size", size);
     }
 
     /**
      * Returns the total number of requests made to the cache.
      * @return
      */
-    public int getCacheRequests(){
-        return cache.getTotalRequests();
+    public Map<String, Integer> getCacheRequests(){
+        int totalRequests = cache.getTotalRequests();
+        return Map.of("Total Requests", totalRequests);
     }
 
     /**
      * Returns the total number of misses the cache received.
      * @return
      */
-    public int getCacheMisses(){
-        return cache.getMISSES();
+    public Map<String, Integer> getCacheMisses(){
+        int misses = cache.getMISSES();
+        return Map.of("Cache Misses", misses);
     }
 
     /**
      * Returns the total number of hits the cache received.
      * @return
      */
-    public int getCacheHits(){
-        return cache.getHITS();
+    public Map<String, Integer> getCacheHits(){
+        int hits = cache.getHITS();
+        return Map.of("Cache Hits", hits);
     }
 
     /**

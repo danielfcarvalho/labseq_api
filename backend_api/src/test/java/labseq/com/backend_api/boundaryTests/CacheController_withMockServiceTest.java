@@ -37,49 +37,49 @@ public class CacheController_withMockServiceTest {
     @Test
     void getCorrectCacheSize() throws Exception {
         // Set up Expectations
-        when(cacheService.getCacheSize()).thenReturn(5);
+        when(cacheService.getCacheSize()).thenReturn(Map.of("Cache Size", 5));
 
         // Verify the result is as expected
         mockMvc.perform(
                         get("/labseq/cache/stats/size").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", is(5)));
+                .andExpect(jsonPath("$.['Cache Size']", is(5)));
     }
 
     @Test
     void getCorrectHits() throws Exception {
         // Set up Expectations
-        when(cacheService.getCacheHits()).thenReturn(5);
+        when(cacheService.getCacheHits()).thenReturn(Map.of("Cache Hits", 5));
 
         // Verify the result is as expected
         mockMvc.perform(
                         get("/labseq/cache/stats/hits").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", is(5)));
+                .andExpect(jsonPath("$.['Cache Hits']", is(5)));
     }
 
     @Test
     void getCorrectMisses() throws Exception {
         // Set up Expectations
-        when(cacheService.getCacheMisses()).thenReturn(5);
+        when(cacheService.getCacheMisses()).thenReturn(Map.of("Cache Misses", 5));
 
         // Verify the result is as expected
         mockMvc.perform(
                         get("/labseq/cache/stats/misses").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", is(5)));
+                .andExpect(jsonPath("$.['Cache Misses']", is(5)));
     }
 
     @Test
     void getCorrectRequests() throws Exception {
         // Set up Expectations
-        when(cacheService.getCacheRequests()).thenReturn(5);
+        when(cacheService.getCacheRequests()).thenReturn(Map.of("Total Requests", 5));
 
         // Verify the result is as expected
         mockMvc.perform(
                         get("/labseq/cache/stats/requests").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", is(5)));
+                .andExpect(jsonPath("$.['Total Requests']", is(5)));
     }
 
     @Test
