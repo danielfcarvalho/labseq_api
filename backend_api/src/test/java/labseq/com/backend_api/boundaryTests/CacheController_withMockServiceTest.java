@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * the access to services
  */
 @WebMvcTest(controllers = CacheController.class)
-public class CacheController_withMockServiceTest {
+class CacheController_withMockServiceTest {
     @Autowired
     private MockMvc mockMvc;
 
