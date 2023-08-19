@@ -36,7 +36,7 @@ class LabseqController_withMockServiceTest {
 
         mockMvc.perform(
                         get("/labseq/-10").contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isNotFound());
+                .andExpect(status().isBadRequest());
     }
 
     @Test
