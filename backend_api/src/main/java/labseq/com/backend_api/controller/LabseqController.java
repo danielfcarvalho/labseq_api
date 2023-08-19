@@ -1,6 +1,12 @@
 package labseq.com.backend_api.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import labseq.com.backend_api.exceptions.IncorrectParameterValueException;
 import labseq.com.backend_api.service.LabseqService;
 import org.slf4j.Logger;
@@ -12,6 +18,7 @@ import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
+@Tag(name = "Labseq Controller", description = "Endpoint to fetch the desired value of the Labseq sequence")
 @RestController
 @RequestMapping("labseq")
 public class LabseqController {
@@ -28,6 +35,13 @@ public class LabseqController {
      * @return a HTTP STATUS OK with the corresponding value
      * @throws IncorrectParameterValueException - In case N < 0, an exception is thrown and a HTTP STATUS NOT FOUND is returned
      */
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Valid N returns Labseq sequence value",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Map.class),
+                            examples = @ExampleObject(value = "{\"Execution Time\": \"0.0s\", \"Value\": \"182376579\"}"))),
+            @ApiResponse(responseCode = "400", description = "Invalid N supplied (Should be N >= 0)",
+                    content = @Content), })
     @Operation(summary = "Get the labseq sequence value at index n")
     @GetMapping("/{n}")
     public ResponseEntity<Map<String, String>> getLabseqValue(@PathVariable(name = "n") Integer n) throws IncorrectParameterValueException {
