@@ -11,11 +11,15 @@ In this project, a REST service was implemented to compute and return values fro
 
 ## How to Run
 
+### Docker 
+
 The REST service is deployed using Docker Compose. Thus to run, after having [installed Docker](https://docs.docker.com/engine/install/), the user only needs to run the following command on the main folder of the project:
 
 ```bash
 $ docker-compose up
 ```
+
+### Local
 
 If the user wishes to run the Spring Boot project instead, after having installed Java's JDK 17 and Maven, the user needs to move to the backend_api folder, and run the project from there:
 
@@ -23,6 +27,11 @@ If the user wishes to run the Spring Boot project instead, after having installe
 $ cd ./backend_api
 $ mvn spring-boot:run
 ```
+### Links
+
+After the user has run the project, using either method, the REST API and the Swagger UI documentation are available in the following links:
+- REST API at [http://localhost:8080](http://localhost:8080)
+- Swagger UI documentation at [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 
 ## Cache Implementation
 
@@ -40,7 +49,7 @@ A CI pipeline was also setup on this repository, allowing for the analysis of ea
 ## Documentation
 
 The REST API is documented in the Open API format, using Swagger and SpringDoc. 
-The REST API documentation is available at (http://localhost:8080/swagger-ui/index.html) once the project is running.
+The REST API documentation is available at [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html) once the project is running.
 
 ## Screenshots
 
