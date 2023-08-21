@@ -21,7 +21,7 @@ $ docker-compose up
 
 ### Local
 
-If the user wishes to run the Spring Boot project instead, after having installed Java's JDK 17 and Maven, the user needs to move to the backend_api folder, and run the project from there:
+If the user wishes to run the Spring Boot project instead, after having installed Java's [JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) and [Maven](https://maven.apache.org/), the user needs to move to the backend_api folder, and run the project from there:
 
 ```bash
 $ cd ./backend_api
@@ -30,6 +30,7 @@ $ mvn spring-boot:run
 ### Links
 
 After the user has run the project, using either method, the REST API and the Swagger UI documentation are available in the following links:
+
 - REST API at [http://localhost:8080](http://localhost:8080)
 - Swagger UI documentation at [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 
@@ -42,13 +43,15 @@ A REST Controller was created to access and check the cache and its statistics, 
 
 ## Development Strategy
 
-The development of this project employed a Test-Driven Development strategy. Thus, development started with the creation of unit tests, with the aim of ensuring that the Labseq and Cache Services behaved as expected. These tests were also complemented with boundary tests of the REST controllers, to verify whether they endpoints consumed HTTP requests and returned responses as expected or not, as well as a integration test where the full context of the Spring Boot application was loaded.
+The development of this project employed a Test-Driven Development strategy. Thus, development started with the creation of unit tests, with the aim of ensuring that the Labseq and Cache Services behaved as expected. These tests were also complemented with boundary tests of the REST controllers, to verify whether their endpoints consumed HTTP requests and returned responses as expected or not, as well as a integration test where the full context of the Spring Boot application was loaded.
 
 A CI pipeline was also setup on this repository, allowing for the analysis of each push with a code static analysis inspector, Sonar Cloud, with the aim of ensuring code quality, security and test coverage. This code static analysis allowed to analyze and correct vulnerabilities, security hotspots, code smells, as well as to analyze the code coverage of the project, which stands at nearly 80%.
 
+To help with debugging and monitoring the workflow of the service, logging was implemented using the [SLF4J](https://www.slf4j.org/manual.html) library.
+
 ## Documentation
 
-The REST API is documented in the Open API format, using Swagger and SpringDoc. 
+The REST API is documented in the Open API format, using [Swagger](https://swagger.io/) and [SpringDoc](https://springdoc.org/). 
 The REST API documentation is available at [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html) once the project is running.
 
 ## Screenshots
